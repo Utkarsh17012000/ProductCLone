@@ -1,6 +1,7 @@
 
 <!doctype html>
 <html lang="en">
+    {% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -49,41 +50,39 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <h1 class="cover-heading text-center"><a class="nav-item nav-link active" href="#">Product Hunt</a></h1>
+            <h1 class="cover-heading text-center"><a class="nav-item nav-link active" href="{% url 'homepage' %}">
+            Product Hunt</a></h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="#">Twitter </a>
-                <a class="nav-item nav-link" href="#">LinkedIn </a>
-                <a class="nav-item nav-link" href="#">Resume</a>
-                <a class="nav-item nav-link" href="#">Blog</a>
+                <a class="nav-item nav-link" href="#">Signup </a>
+                <a class="nav-item nav-link" href="#">Login </a>
               </div>
             </div>
-          </nav>
+          </nav> 
     </header>
-
+    <img class="container" src="{% static 'logo.jpg' %}" height="300" width="450" class="d-inline-block align-top" /><br>
+    <div class="conatiner text-anchor">
+            <p>
+                <a href="{% url 'products' %}" class="btn btn-secondary my-3">Products</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="#" class="btn btn-secondary my-3">Accounts</a>
+            </p>
+    </div>
 <br>
 
-  <main role="main" class="inner cover">
-    <h1 class="cover-heading text-center">Heading Title</h1>
-    <br>
-    <p class="lead">
-        Aristotle (384–322 B.C.E.) numbers among the greatest philosophers of all time. Judged solely in terms of his philosophical influence, only Plato is his peer: Aristotle’s works shaped centuries of philosophy from Late Antiquity through the Renaissance, and even today continue to be studied with keen, non-antiquarian interest. A prodigious researcher and writer, Aristotle left a great body of work, perhaps numbering as many as two-hundred treatises, from which approximately thirty-one survive.[1] His extant writings span a wide range of disciplines, from logic, metaphysics and philosophy of mind, through ethics, political theory, aesthetics and rhetoric, and into such primarily non-philosophical fields as empirical biology, where he excelled at detailed plant and animal observation and description. In all these areas, Aristotle’s theories have provided illumination, met with resistance, sparked debate, and generally stimulated the sustained interest of an abiding readership.
+<div class="container">
+  {% block content %}
+  {% endblock %}
+</div>
 
-Because of its wide range and its remoteness in time, Aristotle’s philosophy defies easy encapsulation. The long history of interpretation and appropriation of Aristotelian texts and themes—spanning over two millennia and comprising philosophers working within a variety of religious and secular traditions—has rendered even basic points of interpretation controversial. The set of entries on Aristotle in this site addresses this situation by proceeding in three tiers. First, the present, general entry offers a brief account of Aristotle’s life and characterizes his central philosophical commitments, highlighting his most distinctive methods and most influential achievements.[2] Second are General Topics, which offer detailed introductions to the main areas of Aristotle’s philosophical activity. Finally, there follow Special Topics, which investigate in greater detail more narrowly focused issues, especially those of central concern in recent Aristotelian scholarship.
-    </p>
-    <!--
-    <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-    </p>
-    -->
-  </main>
-
+<br>
   <footer class="mastfoot mt-auto">
     <div class="inner">
       <p>Summary page for <a href="https://getbootstrap.com/">Product Hunt</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>&copy; ProductHunt</p>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
