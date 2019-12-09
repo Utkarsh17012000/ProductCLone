@@ -23,8 +23,17 @@ def signup_view(request):
         return render(request,"accounts/signuppage.html")
 
 def login_view(request):
-    return render(request,"accounts/loginpage.html")
+    if request.method == "POST":
+        user = auth.authenticate(username=request.POST['username'],password=request.POST['password'])
+        if user is not None:
+            auth.login(request,user)
+            return redirect('homepage')
+        else:
+            return render(request,"accounts/loginpage.html",{'error':'Username or password incorrect!'})
+    else:
+        return render(request,"accounts/loginpage.html")
 
 def logout_view(request):
-    # todo need to route to homepage and donot forget to logout.
-    return render(request,"accounts/signuppage.html")
+    if request.method=="POST":
+        auth.logout(request)
+        return redirect("homepage")

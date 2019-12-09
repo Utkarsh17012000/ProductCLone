@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href="{% url 'homepage' %}">Back to home </a>
+
+    {% if error %}
+        {{ error }}
+    {% endif %}
+
+    <centre><h2><b>Login</b></h2></centre><br>
+
+    <form method="POST" action="{% url 'login' %}"> {% csrf_token %}
+
+        Username: <br><input type="text" name="username" />
+        <br><br>
+        Password: <br><input type="password" name="password" />
+        <br><br>
+        <input class="btn btn-primary" type="submit" value="Login" />
+
+    </form>
+    
+    <br><br><a href="{% url 'homepage' %}">Back to home </a>
+
 {% endblock %}

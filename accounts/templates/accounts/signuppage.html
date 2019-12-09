@@ -3,9 +3,11 @@
 {% block content %}
 
     {% if error %}
-    {{ error }}
+        {{ error }}
     {% endif %}
-    
+
+    <centre><h2><b>Sign Up</b></h2></centre>
+
     <form method="POST" action="{% url 'signup' %}"> {% csrf_token %}
         Username: <br><input type="text" name="username" />
         <br>
@@ -15,7 +17,7 @@
         <br><br>
         <input class="btn btn-primary" type="submit" value="Sign Up!" /> 
     </form>
-    <br><br>
-    <a href="{% url 'homepage' %}">Back to home </a>
+    
+    <br><br><a href="{% url 'homepage' %}">Back to home </a>
 
 {% endblock %}
