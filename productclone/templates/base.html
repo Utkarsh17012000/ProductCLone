@@ -57,8 +57,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="#">Signup </a>
-                <a class="nav-item nav-link" href="#">Login </a>
+                <a class="nav-item nav-link" href="{% url 'signup' %}">Signup </a>
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login </a>
               </div>
             </div>
           </nav> 
@@ -68,7 +68,7 @@
             <p>
                 <a href="{% url 'products' %}" class="btn btn-secondary my-3">Products</a>
                 &nbsp;&nbsp;&nbsp;
-                <a href="#" class="btn btn-secondary my-3">Accounts</a>
+                <a href="{% url 'accounts' %}" class="btn btn-secondary my-3">Accounts</a>
             </p>
     </div>
 <br>
@@ -81,7 +81,7 @@
 <br>
   <footer class="mastfoot mt-auto">
     <div class="inner">
-      <p>Summary page for <a href="https://getbootstrap.com/">Product Hunt</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>Summary page for <a href="#">Product Hunt</a>, by <a href="#">@mdo</a>.</p>
       <p>&copy; ProductHunt</p>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
