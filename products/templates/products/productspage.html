@@ -1,7 +1,64 @@
-{% extends 'base.html' %}
+{% extends 'productbase.html' %}
+{% load staticfiles %}
 
 {% block content %}
 
-    <a href="{% url 'homepage' %}">Back to homepage </a>
-    
+<div class="album py-5 bg-light">
+        <div class="container">
+
+        <div class="row pt-3">
+            {% for product in products.all %}
+            <div class="col-md-4">
+            <p class="text-center" ><b>{{ product.title }}</b></p>
+            <div class="card mb-4 shadow-sm"> 
+                <a href="{% url 'detail' product.id %}"><img class="card-img-top" src="{{ product.icon.url }}"/></a>  
+                <div class="card-body">
+                <p class="card-text">
+                    {{ product.summary }}<br><br>
+                    Hunter: &nbsp;<b>{{ product.hunter }}</b><br>
+                    URL: &nbsp;<a href="{{ product.url }}">{{ product.url }}</a><br>
+                    Votes: &nbsp;{{ product.votes_total }}<br><br>
+                    <a href="javascript:{document.getElementById('upvote{{ product.id }}').submit()}"><button class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span>Upvote {{ product.votes_total }}</button></a>
+                    </p>
+                </div>
+            </div>
+            </div>
+
+            <form id="upvote{{ product.id }}" method="POST" action="{% url 'upvote' product.id %}"> {% csrf_token %}
+                    <input type="hidden" >
+            </form>
+            {% endfor %}   
+        </div>
+
+        </div>
+    </div>
+
 {% endblock %}
+
+
+
+
+
+
+<!--
+    {% for product in products.all %}
+    <div class="row pt-3">
+        <div class="col-2" onclick="window.location='{% url 'detail' product.id %}">
+            <img src="{{ product.icon.url }}" class="img-fluid" />
+        </div>
+
+        <div class="col-6">
+            <h1>{{ product.title }}</h1>
+            <p> {{ product.summary }}</p>
+        </div>
+
+        <div class="col-4">
+            <a href="javascript:{document.getElementById('upvote2').submit()}"><button class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span>Upvote {{ product.votes_total }}</button></a>    
+        </div>
+    </div>
+
+    <form id="upvote2" method="POST" action="{% url 'upvote' product.id %}"> {% csrf_token %}
+        <input type="hidden" >
+    </form>
+    {% endfor %}
+-->

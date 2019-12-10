@@ -8,12 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Cover Template · Bootstrap</title>
+    <title>Product Hunt</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'open-iconic/open-iconic/font/css/open-iconic-bootstrap.css' %}">
 
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -58,8 +59,10 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
-                  <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()">Logout</a>
-                  <form id="logout" method="POST" action="{% url 'homepage' %}"> {% csrf_token %}
+                  <a class="nav-item nav-link" href="{% url 'create' %}"><span class="oi oi-plus"></span></a>
+                  <a class="nav-item nav-link" href="{% url 'products' %}">Products</a>
+                  <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
+                  <form id="logout" method="POST" action="{% url 'logout' %}"> {% csrf_token %}
                     <input type="hidden" />
                   </form>
                 {% else %}
@@ -71,13 +74,6 @@
           </nav> 
     </header>
     <img class="container" src="{% static 'logo.jpg' %}" height="300" width="450" class="d-inline-block align-top" /><br>
-    <div class="conatiner text-anchor">
-            <p>
-                <a href="{% url 'products' %}" class="btn btn-secondary my-3">Products</a>
-                &nbsp;&nbsp;&nbsp;
-                <a href="{% url 'accounts' %}" class="btn btn-secondary my-3">Accounts</a>
-            </p>
-    </div>
 <br>
 
 <div class="container">
@@ -89,7 +85,7 @@
   <footer class="mastfoot mt-auto">
     <div class="inner">
       <p>Summary page for <a href="#">Product Hunt</a>, by <a href="#">@mdo</a>.</p>
-      <p>&copy; ProductHunt</p>
+      <p>&copy; ProductHunt {% now Y %}</p>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
