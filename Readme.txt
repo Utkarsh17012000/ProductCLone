@@ -1,4 +1,4 @@
-This project is developed with Django 2.2 framework. It is a clone version of product hunt actual website.
+This project is developed with Django 2.2 framework. It is a clone version of producthunt actual website.
 
 User can:
     Signup
